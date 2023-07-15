@@ -1,5 +1,8 @@
 function App() {
-    return <></>;
+    return (<>
+    <Headers />
+    <Body />
+    </>)
 }
 
 export default App;
