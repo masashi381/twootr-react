@@ -1,9 +1,10 @@
-import HIstoryList from "./HistoryList";
+import HistoryList from "./HistoryList";
 
 export default function History() {
+  
   return (
     <div>
-      <HIstoryList />
+      <HistoryList />
     </div>
   )
-};
+}; 
