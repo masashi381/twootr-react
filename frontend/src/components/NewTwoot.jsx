@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 
 export default function NewTwoot() {
   const [length, setLength] = useState(0);
@@ -6,6 +7,18 @@ export default function NewTwoot() {
     setLength(event.target.value.length);
   }
   console.log(length);
+  const submitBtn = (event) => {
+    event.preventDefault();
+    axios.post("http://localhost:8080/twoot", {newTwoot: {
+      author:"Henry David Thoreau",
+      content:"Many men go fishing all of their lives without knowing that it is not fish they are after.",
+      authorSlug:"henry-david-thoreau",
+      dateAdded:"2022-07-06"
+  }})
+  .then((response) => {
+    console.log("here", response);
+  })
+  };
   return (
   <div>
     <h3>Compose Twoot</h3>
@@ -16,7 +29,7 @@ export default function NewTwoot() {
       onChange={checkedInputLength}
     />
     <div>
-      <button>Twoot</button>
+      <button onClick={submitBtn}>Twoot</button>
       <p >count: {length}</p>
     </div>
   </div>)
