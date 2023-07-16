@@ -1,9 +1,9 @@
 import { useState } from "react";
 
 export default function NewTwoot() {
-  const [length, setLength] = useState([]);
+  const [length, setLength] = useState(0);
   const checkedInputLength = (event) => {
-    setLength(event.target.value);
+    setLength(event.target.value.length);
   }
   console.log(length);
   return (
@@ -12,13 +12,12 @@ export default function NewTwoot() {
     <input
      type="text"
       name="twootContent" 
-      id="twootContent" 
-      // value={length} 
+      id="twootContent"  
       onChange={checkedInputLength}
     />
     <div>
       <button>Twoot</button>
-      <p>count</p>
+      <p >count: {length}</p>
     </div>
   </div>)
 };
