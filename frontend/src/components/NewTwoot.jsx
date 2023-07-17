@@ -3,7 +3,11 @@ import axios from "axios";
 
 export default function NewTwoot() {
   const [length, setLength] = useState(0);
+  const [count, setCount] = useState(140);
   
+  const countDown = (e) => {
+    setCount(140 - e.target.value.length);
+  }
   const checkedInputLength = (event) => {
     setLength(event.target.value.length);
   }
@@ -34,10 +38,11 @@ export default function NewTwoot() {
       name="twootContent" 
       id="twootContent"  
       onChange={checkedInputLength}
+      onKeyUp={countDown}
     />
     <div>
       <button onClick={submitBtn}>Twoot</button>
-      <p >count: {length}</p>
+      <p >count: {count}</p>
     </div>
   </div>)
 };
