@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useState } from "react";
 
 const Container = styled.div`
 border: 1px solid #000;
@@ -19,9 +20,19 @@ border-bottom: 1px solid #000;
 
 const DateContent = styled.p`
 font-color: #888;
-`
+`;
+
+const ColorChanged = styled.i`
+color: ${props => (props.active ? "red" : "black")};
+`;
+
 export default function HistoryPost(props) {
+  const [active, setActive] = useState(false);
   // console.log("props", props);
+
+  const colorToggle = () => {
+    setActive(!active);
+  }
   const checkedDate = () => {
     const todayDate = new Date();
     const addedDay = new Date(props.content.dateAdded);
@@ -46,9 +57,9 @@ export default function HistoryPost(props) {
       <FlexedName>
         <DateContent>{checkedDate()}</DateContent>
         <div>
-          <i className="fa-solid fa-flag"></i>
-          <i className="fa-solid fa-retweet"></i>
-          <i className="fa-solid fa-heart"></i>
+          <ColorChanged className="fa-solid fa-flag" onClick={colorToggle} active={active}></ColorChanged>
+          <ColorChanged className="fa-solid fa-retweet" onClick={colorToggle} active={active}></ColorChanged>
+          <ColorChanged className="fa-solid fa-heart" onClick={colorToggle} active={active}></ColorChanged>
         </div>
       </FlexedName>
     </Container>
