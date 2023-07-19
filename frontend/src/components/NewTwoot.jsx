@@ -1,7 +1,7 @@
-import { useState } from "react";
 import axios from "axios";
+import { useState } from "react";
 
-export default function NewTwoot() {
+export default function NewTwoot({ addPosts}) {
   const [count, setCount] = useState(140);
   const [text, setText] = useState("");
   
@@ -28,7 +28,8 @@ export default function NewTwoot() {
     }})
     .then((response) => {
       console.log("here", response);
-      
+      addPosts(response.data);
+      setText("");
     })
     .catch((error) => {
       console.error("Error:", error);
@@ -42,6 +43,7 @@ export default function NewTwoot() {
      type="text"
       name="twootContent" 
       id="twootContent"  
+      value={text}
       onChange={getText}
       onKeyUp={countDown}
     />
