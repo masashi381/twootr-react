@@ -1,5 +1,9 @@
 import PurpleContent from "./PurpleContent";
 
 export default function Purple() {
-    return <div>Purple</div>;
+    return (
+        <div>
+            <PurpleContent />
+        </div>
+    );
 }

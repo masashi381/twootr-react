@@ -1,3 +1,8 @@
 export default function PurpleContent() {
-    return <div>PurpleContent</div>;
+    return (
+        <div>
+            <h1>TWOOTR</h1>
+            <button>Write a new twootr</button>
+        </div>
+    );
 }
