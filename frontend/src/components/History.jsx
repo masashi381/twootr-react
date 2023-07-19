@@ -1,10 +1,10 @@
 import HistoryList from "./HistoryList";
 
-export default function History() {
+export default function History(props) {
   
   return (
     <div>
-      <HistoryList />
+      <HistoryList props={props} />
     </div>
   )
 }; 

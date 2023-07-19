@@ -28,15 +28,13 @@ color: ${props => (props.active ? "red" : "black")};
 
 export default function HistoryPost(props) {
   const [active, setActive] = useState(false);
-  // console.log("props", props);
 
   const colorToggle = () => {
     setActive(!active);
   }
   const checkedDate = () => {
     const todayDate = new Date();
-    const addedDay = new Date(props.content.dateAdded);
-    // console.log("day", addedDay);
+    const addedDay = new Date(props.props.content.dateAdded);
     const newTodayDate = todayDate.getTime();
     const newAddedDay = addedDay.getTime();
     const modifiedDate = Math.floor((newTodayDate - newAddedDay) /(24 * 60 * 60 * 1000));
@@ -50,10 +48,10 @@ export default function HistoryPost(props) {
   return(
     <Container>
       <FlexedName>
-        <h3>{props.content.author}</h3>
-        <h4>{props.content.authorSlug}</h4>
+        <h3>{props.props.content.author}</h3>
+        <h4>{props.props.content.authorSlug}</h4>
       </FlexedName>
-      <TextContent>{props.content.content}</TextContent>
+      <TextContent>{props.props.content.content}</TextContent>
       <FlexedName>
         <DateContent>{checkedDate()}</DateContent>
         <div>
