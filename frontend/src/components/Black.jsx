@@ -1,5 +1,9 @@
 import BlackContent from "./BlackContent";
 
 export default function Black() {
-    return <div>Black</div>;
+    return (
+        <div>
+            <BlackContent />
+        </div>
+    );
 }
