@@ -2,7 +2,11 @@ import axios from "axios";
 import NewTwoot from "./NewTwoot";
 import History from "./History";
 import { useEffect, useState } from "react";
+import styled from "styled-components";
 
+const BodyContainer = styled.div`
+background: #f4f1ec;
+`;
 
 export default function Body() {
   const [posts, setPosts] = useState([])
@@ -26,9 +30,9 @@ export default function Body() {
   });
 
   return (
-    <>
-    <NewTwoot addPosts={addPosts}/>
-    {parsedPost}
-    </>
+    <BodyContainer>
+      <NewTwoot addPosts={addPosts}/>
+      {parsedPost}
+    </BodyContainer>
   )
 };

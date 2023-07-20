@@ -1,37 +1,23 @@
-import styled from "styled-components";
 import { useState } from "react";
-
-const Container = styled.div`
-border: 1px solid #000;
-`;
-
-const FlexedName = styled.div`
-width: 90%;
-display: flex;
-justify-content: space-between;
-margin: 0 auto;
-`;
-
-const TextContent = styled.p`
-width: 95%;
-margin: 0 auto;
-border-bottom: 1px solid #000;
-`;
-
-const DateContent = styled.p`
-font-color: #888;
-`;
-
-const ColorChanged = styled.i`
-color: ${props => (props.active ? "red" : "black")};
-`;
+import { Container, FlexedName, TextContent, DateContent, ChangedFlag, ChangedRetweet, ChangedHeart } from "./HistoryPostStyle";
 
 export default function HistoryPost(props) {
-  const [active, setActive] = useState(false);
+  const [flagActive, setFlagActive] = useState(false);
+  const [reTweetActive, setReTweetActive] = useState(false);
+  const [heartActive, setHeartActive] = useState(false);
 
-  const colorToggle = () => {
-    setActive(!active);
+  const flagColorToggle = () => {
+    setFlagActive(!flagActive);
   }
+
+  const reTweetColorToggle = () => {
+    setReTweetActive(!reTweetActive);
+  }
+
+  const heartColorToggle = () => {
+    setHeartActive(!heartActive);
+  }
+
   const checkedDate = () => {
     const todayDate = new Date();
     const addedDay = new Date(props.props.content.dateAdded);
@@ -55,9 +41,9 @@ export default function HistoryPost(props) {
       <FlexedName>
         <DateContent>{checkedDate()}</DateContent>
         <div>
-          <ColorChanged className="fa-solid fa-flag" onClick={colorToggle} active={active}></ColorChanged>
-          <ColorChanged className="fa-solid fa-retweet" onClick={colorToggle} active={active}></ColorChanged>
-          <ColorChanged className="fa-solid fa-heart" onClick={colorToggle} active={active}></ColorChanged>
+          <ChangedFlag className="fa-solid fa-flag" onClick={flagColorToggle} active={flagActive.toString()}></ChangedFlag>
+          <ChangedRetweet className="fa-solid fa-retweet" onClick={reTweetColorToggle} active={reTweetActive.toString()}></ChangedRetweet>
+          <ChangedHeart className="fa-solid fa-heart" onClick={heartColorToggle} active={heartActive.toString()}></ChangedHeart>
         </div>
       </FlexedName>
     </Container>

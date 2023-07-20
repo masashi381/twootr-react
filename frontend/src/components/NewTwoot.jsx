@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { NewTwootContainer, SubTitleStyle, TextStyle, FlexStyle, NewTwootBtn, CounterStyle } from "./NewTwootStyle";
 
 export default function NewTwoot({ addPosts}) {
   const [count, setCount] = useState(140);
@@ -30,6 +31,7 @@ export default function NewTwoot({ addPosts}) {
       console.log("here", response);
       addPosts(response.data);
       setText("");
+      setCount(140);
     })
     .catch((error) => {
       console.error("Error:", error);
@@ -37,19 +39,20 @@ export default function NewTwoot({ addPosts}) {
    }
   };
   return (
-  <div>
-    <h3>Compose Twoot</h3>
-    <input
+  <NewTwootContainer>
+    <SubTitleStyle>Compose Twoot</SubTitleStyle>
+    <TextStyle
      type="text"
       name="twootContent" 
       id="twootContent"  
       value={text}
       onChange={getText}
       onKeyUp={countDown}
+      placeholder="What are you humming about?"
     />
-    <div>
-      <button onClick={submitBtn}>Twoot</button>
-      <p >count: {count}</p>
-    </div>
-  </div>)
+    <FlexStyle>
+      <NewTwootBtn onClick={submitBtn}>Twoot</NewTwootBtn>
+      <CounterStyle>{count}</CounterStyle>
+    </FlexStyle>
+  </NewTwootContainer>)
 };
