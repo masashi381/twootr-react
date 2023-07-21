@@ -1,7 +1,7 @@
 import { useState } from "react";
 import FormContent from "./FormContent";
 
-export default function BlackContent() {
+export default function BlackContent({ passName }) {
     //Account name
     const [getUser, setGetUser] = useState("@john-doe");
     const newUser = (newUser) => {
@@ -30,6 +30,7 @@ export default function BlackContent() {
                     <FormContent
                         newUser={newUser}
                         newUserTitle={newUserTitle}
+                        passName={passName}
                     />
                 )}
                 <p>{getUser}</p>

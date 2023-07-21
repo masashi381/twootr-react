@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-export default function FormContent({ newUser, newUserTitle }) {
+
+export default function FormContent({ newUser, newUserTitle, passName }) {
     // const [inputAurthorName, setInputAurthorName] = useState("@john-doe");
 
     //Change a new name when user click the submit button
@@ -14,6 +15,7 @@ export default function FormContent({ newUser, newUserTitle }) {
         // setInputAurthorName(creatName);
         newUser(creatName);
         newUserTitle(getFirstName + " " + getLastName);
+        passName(getFirstName + getLastName);
     };
 
     //Submit button

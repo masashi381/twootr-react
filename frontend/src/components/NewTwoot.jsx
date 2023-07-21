@@ -2,17 +2,21 @@ import axios from "axios";
 import { useState } from "react";
 import { NewTwootContainer, SubTitleStyle, TextStyle, FlexStyle, NewTwootBtn, CounterStyle } from "./NewTwootStyle";
 
-export default function NewTwoot({ addPosts}) {
+export default function NewTwoot({ addPosts, name }) {
+  console.log("new Twoot", name);
   const [count, setCount] = useState(140);
   const [text, setText] = useState("");
   
   const countDown = (e) => {
     setCount(140 - e.target.value.length);
-  }
+  };
+
   const getText = (event) => {
     console.log("getText", event.target.value);
     setText(event.target.value);
-  }
+  };
+
+  
   const submitBtn = (event) => {
     event.preventDefault();
     const postDate = new Date();
@@ -22,7 +26,7 @@ export default function NewTwoot({ addPosts}) {
       alert(" your message is too long");
     }else {
       axios.post("http://localhost:8080/twoot", {newTwoot: {
-        author:"Henry David Thoreau",
+        author:name,
         content:text,
         authorSlug:"henry-david-thoreau",
         dateAdded:postDate,
