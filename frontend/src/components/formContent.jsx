@@ -1,25 +1,27 @@
 import { useState } from "react";
 
-export default function FormContent() {
-    const [inputAurtherName, setInputAurtherName] = useState("");
+export default function FormContent({ newUser, newUserTitle }) {
+    // const [inputAurthorName, setInputAurthorName] = useState("@john-doe");
 
+    //Change a new name when user click the submit button
     const [submitted, setSubmitted] = useState(false);
-
     const nameSubmit = (event) => {
         setSubmitted(true);
         event.preventDefault();
         const getFirstName = document.getElementById("firstName").value;
         const getLastName = document.getElementById("lastName").value;
-        setInputAurtherName(
-            `@${getFirstName.toLowerCase()}-${getLastName.toLowerCase()}`
-        );
+        const creatName = `@${getFirstName.toLowerCase()}-${getLastName.toLowerCase()}`;
+        // setInputAurthorName(creatName);
+        newUser(creatName);
+        newUserTitle(getFirstName + " " + getLastName);
     };
 
-    const submittedSuccessfully = submitted ? (
-        <span style={{ color: "green" }}>&#10003;</span>
-    ) : (
-        "Submit"
-    );
+    //Submit button
+    // const submittedSuccessfully = submitted ? (
+    //     <span style={{ color: "green" }}>&#10003;</span>
+    // ) : (
+    //     "Submit"
+    // );
 
     return (
         <div>
@@ -30,11 +32,9 @@ export default function FormContent() {
             <form>
                 <input type="text" id="firstName" />
                 <input type="text" id="lastName" />
-                <button onClick={nameSubmit} disabled={submitted}>
-                    {submittedSuccessfully}
-                </button>
+                <button onClick={nameSubmit}>Submit</button>
             </form>
-            <p>{inputAurtherName}</p>
+            {/* <p>{inputAurthorName}</p> */}
         </div>
     );
 }
