@@ -8,7 +8,8 @@ const BodyContainer = styled.div`
 background: #f4f1ec;
 `;
 
-export default function Body() {
+export default function Body({name}) {
+  console.log("Body", name);
   const [posts, setPosts] = useState([])
   useEffect(() => {
     axios.get("http://localhost:8080/twoots")
@@ -31,7 +32,7 @@ export default function Body() {
 
   return (
     <BodyContainer>
-      <NewTwoot addPosts={addPosts}/>
+      <NewTwoot addPosts={addPosts} name={name}/>
       {parsedPost}
     </BodyContainer>
   )

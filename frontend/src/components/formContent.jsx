@@ -1,6 +1,7 @@
 import { useState } from "react";
 
-export default function FormContent() {
+export default function FormContent({ passName }) {
+    console.log("FormContent", passName);
     const [inputAurtherName, setInputAurtherName] = useState("");
 
     const [submitted, setSubmitted] = useState(false);
@@ -13,6 +14,7 @@ export default function FormContent() {
         setInputAurtherName(
             `@${getFirstName.toLowerCase()}-${getLastName.toLowerCase()}`
         );
+        passName(getFirstName + getLastName);
     };
 
     const submittedSuccessfully = submitted ? (
