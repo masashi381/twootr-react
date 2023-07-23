@@ -1,9 +1,10 @@
 import PurpleContent from "./PurpleContent";
+import { HeaderBackground } from "./PurpleStyle";
 
 export default function Purple() {
     return (
-        <div>
+        <HeaderBackground>
             <PurpleContent />
-        </div>
+        </HeaderBackground>
     );
 }

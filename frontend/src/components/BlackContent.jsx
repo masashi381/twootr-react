@@ -1,5 +1,13 @@
 import { useState } from "react";
 import FormContent from "./FormContent";
+import {
+    AccountName,
+    EditButton,
+    EditIcon,
+    FormDisplay,
+    FullName,
+    NameTitle,
+} from "./BlackStyle";
 
 export default function BlackContent({ passName }) {
     //Account name
@@ -22,19 +30,27 @@ export default function BlackContent({ passName }) {
     };
 
     return (
-        <div>
-            <div>
-                <h3>{getNameTitle}</h3>
-                <button onClick={changeName}>Click</button>
-                {changeUserName && (
-                    <FormContent
-                        newUser={newUser}
-                        newUserTitle={newUserTitle}
-                        passName={passName}
-                    />
-                )}
-                <p>{getUser}</p>
-            </div>
-        </div>
+        <FormDisplay>
+            <img
+                src="https://avatars.dicebear.com/api/bottts/${authorSlug}.svg"
+                alt="Avatar"
+                width="150"
+                height="150"
+            />
+            <NameTitle>
+                <FullName>{getNameTitle}</FullName>
+                <EditButton onClick={changeName}>
+                    <EditIcon className="fa-solid fa-pen-to-square"></EditIcon>
+                </EditButton>
+            </NameTitle>
+            {changeUserName && (
+                <FormContent
+                    newUser={newUser}
+                    newUserTitle={newUserTitle}
+                    passName={passName}
+                />
+            )}
+            <AccountName>{getUser}</AccountName>
+        </FormDisplay>
     );
 }

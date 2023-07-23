@@ -1,10 +1,11 @@
 import BlackContent from "./BlackContent";
+import { Background } from "./BlackStyle";
 
 export default function Black({ passName }) {
     console.log("Black", passName);
     return (
-        <div>
+        <Background>
             <BlackContent passName={passName} />
-        </div>
+        </Background>
     );
 }
