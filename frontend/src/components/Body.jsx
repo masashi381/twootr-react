@@ -10,7 +10,6 @@ background: #f4f1ec;
 
 export default function Body({ name, nameSlug }) {
   const [posts, setPosts] = useState([]);
-  const [img, setImg] = useState("");
   
   useEffect(() => {
     axios.get("http://localhost:8080/twoots")
@@ -27,17 +26,13 @@ export default function Body({ name, nameSlug }) {
     setPosts((prevPosts) => [newPosts, ...prevPosts]);
   };
 
-  const changeImage = (newImage) => {
-    setImg(newImage);
-  };
-
   const parsedPost = posts.map((post, index) => {
-    return <History key={index} post ={post} img={img}/>
+    return <History key={index} post ={post}/>
   });
 
   return (
     <BodyContainer>
-      <NewTwoot addPosts={addPosts} name={name} nameSlug={nameSlug} changeImage={changeImage} />
+      <NewTwoot addPosts={addPosts} name={name} nameSlug={nameSlug}/>
       {parsedPost}
     </BodyContainer>
   )
