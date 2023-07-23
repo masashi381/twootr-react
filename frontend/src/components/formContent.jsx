@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { InputContents } from "./BlackStyle";
+import { InputContents, SubmitButton } from "./BlackStyle";
 
 export default function FormContent({ newUser, newUserTitle, passName }) {
     // const [inputAurthorName, setInputAurthorName] = useState("@john-doe");
@@ -30,7 +30,7 @@ export default function FormContent({ newUser, newUserTitle, passName }) {
             <form>
                 <InputContents type="text" id="firstName" />
                 <InputContents type="text" id="lastName" />
-                <button onClick={nameSubmit}>Submit</button>
+                <SubmitButton onClick={nameSubmit}>Submit</SubmitButton>
             </form>
             {/* <p>{inputAurthorName}</p> */}
         </div>

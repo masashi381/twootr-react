@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Background = styled.div`
-    background-color: #888888;
+    background-color: #413f42;
     color: white;
 `;
 
@@ -44,4 +44,12 @@ export const AccountName = styled.p`
 
 export const InputContents = styled.input`
     margin-right: 0.5rem;
+    width: 10rem;
+    height: 1.5rem;
+    font-size: 1rem;
+`;
+
+export const SubmitButton = styled.button`
+    height: 1.5rem;
+    font-size: 1rem;
 `;
