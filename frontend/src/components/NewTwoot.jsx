@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { NewTwootContainer, SubTitleStyle, TextStyle, FlexStyle, NewTwootBtn, CounterStyle } from "./NewTwootStyle";
 
-export default function NewTwoot({ addPosts, name, nameSlug }) {
+export default function NewTwoot({ addPosts, name, nameSlug, changeImage }) {
   const [count, setCount] = useState(140);
   const [text, setText] = useState("");
   
@@ -25,9 +25,9 @@ export default function NewTwoot({ addPosts, name, nameSlug }) {
       alert(" your message is too long");
     }else {
       axios.post("http://localhost:8080/twoot", {newTwoot: {
-        author:name,
-        content:text,
-        authorSlug:"henry-david-thoreau",
+        author: name,
+        content: text,
+        authorSlug: nameSlug,
         dateAdded:postDate,
     }})
     .then((response) => {
