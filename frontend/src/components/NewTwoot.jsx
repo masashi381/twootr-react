@@ -2,8 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { NewTwootContainer, SubTitleStyle, TextStyle, FlexStyle, NewTwootBtn, CounterStyle } from "./NewTwootStyle";
 
-export default function NewTwoot({ addPosts, name }) {
-  console.log("new Twoot", name);
+export default function NewTwoot({ addPosts, name, nameSlug }) {
   const [count, setCount] = useState(140);
   const [text, setText] = useState("");
   
@@ -12,7 +11,7 @@ export default function NewTwoot({ addPosts, name }) {
   };
 
   const getText = (event) => {
-    console.log("getText", event.target.value);
+    // console.log("getText", event.target.value);
     setText(event.target.value);
   };
 
@@ -36,6 +35,7 @@ export default function NewTwoot({ addPosts, name }) {
       addPosts(response.data);
       setText("");
       setCount(140);
+      changeImage(response.data.authorSlug);
     })
     .catch((error) => {
       console.error("Error:", error);

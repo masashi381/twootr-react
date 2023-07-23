@@ -8,7 +8,7 @@ const BodyContainer = styled.div`
 background: #f4f1ec;
 `;
 
-export default function Body({name}) {
+export default function Body({ name, nameSlug }) {
   console.log("Body", name);
   const [posts, setPosts] = useState([])
   useEffect(() => {
@@ -26,13 +26,17 @@ export default function Body({name}) {
     setPosts((prevPosts) => [newPosts, ...prevPosts]);
   };
 
+  const changeImage = (newImage) => {
+    setImg(newImage);
+  };
+
   const parsedPost = posts.map((post, index) => {
     return <History key={index} content={post}/>
   });
 
   return (
     <BodyContainer>
-      <NewTwoot addPosts={addPosts} name={name}/>
+      <NewTwoot addPosts={addPosts} name={name} nameSlug={nameSlug} changeImage={changeImage} />
       {parsedPost}
     </BodyContainer>
   )
