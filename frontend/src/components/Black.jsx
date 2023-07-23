@@ -1,11 +1,10 @@
 import BlackContent from "./BlackContent";
 import { Background } from "./BlackStyle";
 
-export default function Black({ passName }) {
-    console.log("Black", passName);
+export default function Black({ passName, passNameSlug }) {
     return (
         <Background>
-            <BlackContent passName={passName} />
+            <BlackContent passName={passName} passNameSlug={passNameSlug} />
         </Background>
     );
 }

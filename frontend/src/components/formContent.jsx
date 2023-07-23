@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { InputContents } from "./BlackStyle";
 
-export default function FormContent({ newUser, newUserTitle, passName }) {
+export default function FormContent({ newUser, newUserTitle, passName, passNameSlug }) {
     // const [inputAurthorName, setInputAurthorName] = useState("@john-doe");
 
     //Change a new name when user click the submit button
@@ -15,7 +15,8 @@ export default function FormContent({ newUser, newUserTitle, passName }) {
         // setInputAurthorName(creatName);
         newUser(creatName);
         newUserTitle(getFirstName + " " + getLastName);
-        passName(getFirstName + getLastName);
+        passName(getFirstName + " " + getLastName);
+        passNameSlug(createName)
     };
 
     //Submit button

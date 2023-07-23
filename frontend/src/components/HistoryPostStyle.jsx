@@ -17,6 +17,14 @@ export const FlexedName = styled.div`
   margin: 0 auto;
 `;
 
+export const ImgStyle = styled.img`
+width: 50px;
+height: 50px;
+`;
+
+export const FlexStyle = styled.div`
+display: flex;
+`;
 export const TextContent = styled.p`
   width: 95%;
   padding-bottom: 10px;

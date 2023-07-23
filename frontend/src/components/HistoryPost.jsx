@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Container, FlexedName, TextContent, DateContent, ChangedFlag, ChangedRetweet, ChangedHeart, ImgStyle } from "./HistoryPostStyle";
+import { Container, FlexedName, TextContent, DateContent, ChangedFlag, ChangedRetweet, ChangedHeart, FlexStyle, ImgStyle } from "./HistoryPostStyle";
 
 export default function HistoryPost({ post, img }) {
   const [flagActive, setFlagActive] = useState(false);

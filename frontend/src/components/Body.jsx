@@ -31,7 +31,7 @@ export default function Body({ name, nameSlug }) {
   };
 
   const parsedPost = posts.map((post, index) => {
-    return <History key={index} content={post}/>
+    return <History key={index} post ={post}/>
   });
 
   return (
