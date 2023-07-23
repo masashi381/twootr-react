@@ -9,7 +9,7 @@ import {
     NameTitle,
 } from "./BlackStyle";
 
-export default function BlackContent({ passName }) {
+export default function BlackContent({ passName, passNameSlug }) {
     //Account name
     const [getUser, setGetUser] = useState("@john-doe");
     const newUser = (newUser) => {
@@ -48,6 +48,7 @@ export default function BlackContent({ passName }) {
                     newUser={newUser}
                     newUserTitle={newUserTitle}
                     passName={passName}
+                    passNameSlug={passNameSlug}
                 />
             )}
             <AccountName>{getUser}</AccountName>
