@@ -20,7 +20,7 @@ export default function HistoryPost({ post, img }) {
 
   const checkedDate = () => {
     const todayDate = new Date();
-    const addedDay = new Date(props.props.content.dateAdded);
+    const addedDay = new Date(post.dateAdded);
     const newTodayDate = todayDate.getTime();
     const newAddedDay = addedDay.getTime();
     const modifiedDate = Math.floor((newTodayDate - newAddedDay) /(24 * 60 * 60 * 1000));

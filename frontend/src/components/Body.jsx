@@ -9,8 +9,9 @@ background: #f4f1ec;
 `;
 
 export default function Body({ name, nameSlug }) {
-  console.log("Body", name);
-  const [posts, setPosts] = useState([])
+  const [posts, setPosts] = useState([]);
+  const [img, setImg] = useState("");
+  
   useEffect(() => {
     axios.get("http://localhost:8080/twoots")
     .then((res) => {
@@ -31,7 +32,7 @@ export default function Body({ name, nameSlug }) {
   };
 
   const parsedPost = posts.map((post, index) => {
-    return <History key={index} post ={post}/>
+    return <History key={index} post ={post} img={img}/>
   });
 
   return (

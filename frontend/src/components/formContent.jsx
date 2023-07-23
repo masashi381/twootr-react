@@ -11,9 +11,9 @@ export default function FormContent({ newUser, newUserTitle, passName, passNameS
         event.preventDefault();
         const getFirstName = document.getElementById("firstName").value;
         const getLastName = document.getElementById("lastName").value;
-        const creatName = `@${getFirstName.toLowerCase()}-${getLastName.toLowerCase()}`;
+        const createName = `@${getFirstName.toLowerCase()}-${getLastName.toLowerCase()}`;
         // setInputAurthorName(creatName);
-        newUser(creatName);
+        newUser(createName);
         newUserTitle(getFirstName + " " + getLastName);
         passName(getFirstName + " " + getLastName);
         passNameSlug(createName)
