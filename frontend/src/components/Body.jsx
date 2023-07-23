@@ -8,9 +8,10 @@ const BodyContainer = styled.div`
 background: #f4f1ec;
 `;
 
-export default function Body({name}) {
-  console.log("Body", name);
-  const [posts, setPosts] = useState([])
+export default function Body({ name, nameSlug }) {
+  const [posts, setPosts] = useState([]);
+  const [img, setImg] = useState("");
+  
   useEffect(() => {
     axios.get("http://localhost:8080/twoots")
     .then((res) => {
@@ -26,13 +27,17 @@ export default function Body({name}) {
     setPosts((prevPosts) => [newPosts, ...prevPosts]);
   };
 
+  const changeImage = (newImage) => {
+    setImg(newImage);
+  };
+
   const parsedPost = posts.map((post, index) => {
-    return <History key={index} content={post}/>
+    return <History key={index} post ={post} img={img}/>
   });
 
   return (
     <BodyContainer>
-      <NewTwoot addPosts={addPosts} name={name}/>
+      <NewTwoot addPosts={addPosts} name={name} nameSlug={nameSlug} changeImage={changeImage} />
       {parsedPost}
     </BodyContainer>
   )
