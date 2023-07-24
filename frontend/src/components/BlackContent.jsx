@@ -9,7 +9,9 @@ import {
     NameTitle,
 } from "./BlackStyle";
 
-export default function BlackContent({ passName, passNameSlug }) {
+export default function BlackContent({ passName, passNameSlug}) {
+    const [icon, setIcon] = useState("");
+    
     //Account name
     const [getUser, setGetUser] = useState("@john-doe");
     const newUser = (newUser) => {
@@ -29,10 +31,13 @@ export default function BlackContent({ passName, passNameSlug }) {
         event.preventDefault();
     };
 
+    const getIcon =(newId) => {
+        setIcon(newId);
+    }
     return (
         <FormDisplay>
             <img
-                src="https://avatars.dicebear.com/api/bottts/${authorSlug}.svg"
+                src={`https://avatars.dicebear.com/api/bottts/${icon}.svg`}
                 alt="Avatar"
                 width="150"
                 height="150"
@@ -49,6 +54,7 @@ export default function BlackContent({ passName, passNameSlug }) {
                     newUserTitle={newUserTitle}
                     passName={passName}
                     passNameSlug={passNameSlug}
+                    getIcon={getIcon}
                 />
             )}
             <AccountName>{getUser}</AccountName>

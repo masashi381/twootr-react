@@ -8,7 +8,7 @@ const BodyContainer = styled.div`
 background: #f4f1ec;
 `;
 
-export default function Body({ name, nameSlug }) {
+export default function Body({ name, nameSlug,}) {
   const [posts, setPosts] = useState([]);
   
   useEffect(() => {
