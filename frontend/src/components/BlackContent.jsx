@@ -16,7 +16,7 @@ export default function BlackContent({ passName, passNameSlug }) {
     };
 
     //Account name
-    const [getUser, setGetUser] = useState("@john-doe");
+    const [getUser, setGetUser] = useState("john-doe");
     const newUser = (newUser) => {
         setGetUser(newUser);
     };
