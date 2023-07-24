@@ -17,28 +17,24 @@ export default function FormContent({
         event.preventDefault();
         const getFirstName = document.getElementById("firstName").value;
         const getLastName = document.getElementById("lastName").value;
-        const createName = `@${getFirstName
+        const createAccountName = `@${getFirstName
             .toLowerCase()
             .replace(/[^a-zA-Z0]/g, "")}-${getLastName
             .toLowerCase()
             .replace(/[^a-zA-Z]/g, "")}`;
+        const createName =
+            getFirstName.replace(/[^a-zA-Z]/g, "") +
+            " " +
+            getLastName.replace(/[^a-zA-Z]/g, "");
         if (!getFirstName || !getLastName) {
             alert("Please enter a valid name!");
         } else {
             // setInputAurthorName(creatName);
-            newUser(createName);
-            newUserTitle(
-                getFirstName.replace(/[^a-zA-Z]/g, "") +
-                    " " +
-                    getLastName.replace(/[^a-zA-Z]/g, "")
-            );
-            passName(
-                getFirstName.replace(/[^a-zA-Z]/g, "") +
-                    " " +
-                    getLastName.replace(/[^a-zA-Z]/g, "")
-            );
-            passNameSlug(createName);
             getIcon(createName);
+            newUserTitle(createName);
+            newUser(createAccountName);
+            passName(createName);
+            passNameSlug(createName);
         }
     };
 

@@ -9,9 +9,12 @@ import {
     NameTitle,
 } from "./BlackStyle";
 
-export default function BlackContent({ passName, passNameSlug}) {
+export default function BlackContent({ passName, passNameSlug }) {
     const [icon, setIcon] = useState("");
-    
+    const getIcon = (newId) => {
+        setIcon(newId);
+    };
+
     //Account name
     const [getUser, setGetUser] = useState("@john-doe");
     const newUser = (newUser) => {
@@ -31,9 +34,6 @@ export default function BlackContent({ passName, passNameSlug}) {
         event.preventDefault();
     };
 
-    const getIcon =(newId) => {
-        setIcon(newId);
-    }
     return (
         <FormDisplay>
             <img
