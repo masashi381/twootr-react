@@ -1,4 +1,5 @@
 import { useState } from "react";
+
 import { InputContents, SubmitButton } from "./BlackStyle";
 
 export default function FormContent({
@@ -8,7 +9,6 @@ export default function FormContent({
     passNameSlug,
     getIcon,
 }) {
-    // const [inputAurthorName, setInputAurthorName] = useState("@john-doe");
 
     //Change a new name when user click the submit button
     const [submitted, setSubmitted] = useState(false);
@@ -17,7 +17,7 @@ export default function FormContent({
         event.preventDefault();
         const getFirstName = document.getElementById("firstName").value;
         const getLastName = document.getElementById("lastName").value;
-        const createAccountName = `@${getFirstName
+        const createAccountName = `${getFirstName
             .toLowerCase()
             .replace(/[^a-zA-Z0]/g, "")}-${getLastName
             .toLowerCase()
@@ -26,24 +26,19 @@ export default function FormContent({
             getFirstName.replace(/[^a-zA-Z]/g, "") +
             " " +
             getLastName.replace(/[^a-zA-Z]/g, "");
+            
         if (!getFirstName || !getLastName) {
             alert("Please enter a valid name!");
         } else {
             // setInputAurthorName(creatName);
-            getIcon(createName);
+            getIcon(createAccountName);
             newUserTitle(createName);
             newUser(createAccountName);
             passName(createName);
-            passNameSlug(createName);
+            passNameSlug(createAccountName);
         }
     };
 
-    //Submit button
-    // const submittedSuccessfully = submitted ? (
-    //     <span style={{ color: "green" }}>&#10003;</span>
-    // ) : (
-    //     "Submit"
-    // );
 
     return (
         <div>
@@ -52,7 +47,6 @@ export default function FormContent({
                 <InputContents type="text" id="lastName" />
                 <SubmitButton onClick={nameSubmit}>Submit</SubmitButton>
             </form>
-            {/* <p>{inputAurthorName}</p> */}
         </div>
     );
 }
