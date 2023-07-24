@@ -10,7 +10,7 @@ export const Container = styled.div`
 `;
 
 export const FlexedName = styled.div`
-  width: 90%;
+  width: 95%;
   display: flex;
   justify-content: space-between;
   align-items: center;

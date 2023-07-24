@@ -8,6 +8,7 @@ function App() {
         setName(newName);
     };
 
+
     const passNameSlug = (newNameSlug) => {
         setNameSlug(newNameSlug);
     };
