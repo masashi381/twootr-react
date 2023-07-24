@@ -18,7 +18,6 @@ export default function NewTwoot({ addPosts, name, nameSlug }) {
     };
 
     const getText = (event) => {
-        // console.log("getText", event.target.value);
         setText(event.target.value);
     };
 

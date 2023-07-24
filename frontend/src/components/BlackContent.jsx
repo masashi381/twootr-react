@@ -57,7 +57,7 @@ export default function BlackContent({ passName, passNameSlug}) {
                     getIcon={getIcon}
                 />
             )}
-            <AccountName>{getUser}</AccountName>
+            <AccountName>@{getUser}</AccountName>
         </FormDisplay>
     );
 }
