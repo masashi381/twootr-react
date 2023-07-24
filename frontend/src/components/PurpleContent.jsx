@@ -3,7 +3,14 @@ import { Header, TitleStyle, WriteButton } from "./PurpleStyle";
 export default function PurpleContent() {
     const clickFocus = () => {
         const newTwootId = document.getElementById("twootContent");
-        newTwootId.focus();
+        newTwootId.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+            inline: "center",
+        });
+        setTimeout(() => {
+            newTwootId.focus();
+        }, 1000);
     };
 
     return (

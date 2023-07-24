@@ -3,9 +3,11 @@ import styled from "styled-components";
 export const Background = styled.div`
     background-color: #413f42;
     color: white;
+    padding-top: 60px;
 `;
 
 export const FormDisplay = styled.div`
+    font-family: "Kanit", sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
