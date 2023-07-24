@@ -1,9 +1,9 @@
 import HistoryPost from "./HistoryPost";
 
-export default function HistoryList({ post, img }) {
+export default function HistoryList({ post }) {
   return (
     <div>
-     <HistoryPost post={post} img={img} /> 
+     <HistoryPost post={post} /> 
     </div>
   )
 };

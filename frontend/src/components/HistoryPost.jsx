@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Container, FlexedName, TextContent, DateContent, ChangedFlag, ChangedRetweet, ChangedHeart, FlexStyle, ImgStyle } from "./HistoryPostStyle";
 
-export default function HistoryPost({ post, img }) {
+export default function HistoryPost({ post }) {
   const [flagActive, setFlagActive] = useState(false);
   const [reTweetActive, setReTweetActive] = useState(false);
   const [heartActive, setHeartActive] = useState(false);
@@ -35,7 +35,7 @@ export default function HistoryPost({ post, img }) {
     <Container>
       <FlexedName>
       <FlexStyle>
-          <ImgStyle src={`https://avatars.dicebear.com/api/bottts/${img}.svg`} alt="author's icon" />
+          <ImgStyle src={`https://avatars.dicebear.com/api/bottts/${post.authorSlug}.svg`} alt="author's icon" />
           <h3>{post.author}</h3>
         </FlexStyle>
         <h4>{post.authorSlug}</h4>
