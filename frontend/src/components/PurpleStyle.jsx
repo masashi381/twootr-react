@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 export const HeaderBackground = styled.div`
     background-color: #711a75;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
 `;
 
 export const Header = styled.header`
