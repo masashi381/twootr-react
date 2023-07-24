@@ -37,7 +37,7 @@ export default function HistoryPost({ post }) {
             (newTodayDate - newAddedDay) / (24 * 60 * 60 * 1000)
         );
         if (modifiedDate === 0) {
-            return "posted today";
+            return "Posted today";
         } else {
             return `Twooted ${modifiedDate} days ago`;
         }
