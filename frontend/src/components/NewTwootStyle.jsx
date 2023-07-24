@@ -15,7 +15,7 @@ export const TextStyle = styled.input`
     width: -webkit-fill-available;
     background-color: #f4f1ec;
     border: none;
-    border-bottom: 2px solid #000;
+    border-bottom: 3px solid #000;
     padding: 10px 10px;
     margin-bottom: 10px;
     font-family: "Kanit", sans-serif;

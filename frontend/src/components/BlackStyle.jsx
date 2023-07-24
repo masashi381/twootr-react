@@ -6,6 +6,7 @@ export const Background = styled.div`
 `;
 
 export const FormDisplay = styled.div`
+    font-family: "Kanit", sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
